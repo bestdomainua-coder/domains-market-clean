@@ -1,16 +1,10 @@
 export default function Page() {
-  const domains = [
-    { name: "vape.com.ua", price: "$2,500" },
-    { name: "free.com.ua", price: "$5,000" },
-    { name: "pancake.com.ua", price: "$1,200" },
-  ];
-
   return (
-    <main className="min-h-screen bg-[#020617] text-white px-6 py-10">
-      
+    <main className="min-h-screen bg-[#020617] text-white">
+
       {/* NAV */}
-      <div className="max-w-6xl mx-auto flex justify-between items-center mb-16">
-        <h1 className="text-xl font-semibold tracking-wide">
+      <div className="max-w-7xl mx-auto px-6 py-6 flex justify-between items-center">
+        <h1 className="text-lg tracking-widest font-semibold">
           DOMAINS MARKET
         </h1>
 
@@ -20,42 +14,55 @@ export default function Page() {
       </div>
 
       {/* HERO */}
-      <div className="text-center mb-20">
-        <h2 className="text-5xl font-bold bg-gradient-to-r from-cyan-400 to-green-400 bg-clip-text text-transparent mb-6">
-          Premium Domain Marketplace
+      <section className="max-w-5xl mx-auto text-center mt-20 px-6">
+        
+        <h2 className="text-6xl font-bold leading-tight mb-6">
+          <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-green-400 bg-clip-text text-transparent">
+            Find Premium Domains
+          </span>
         </h2>
 
-        <p className="text-slate-400 mb-10">
-          Buy and sell high-value domain names
+        <p className="text-slate-400 text-lg mb-10">
+          Buy and sell high-quality domain names for your business
         </p>
 
-        <div className="max-w-xl mx-auto relative">
+        {/* SEARCH */}
+        <div className="relative max-w-2xl mx-auto">
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-green-500 blur-2xl opacity-20 rounded-2xl"></div>
+
           <input
             placeholder="Search domain..."
-            className="w-full p-5 rounded-2xl bg-slate-900 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+            className="relative w-full p-5 rounded-2xl bg-slate-900 border border-slate-800 focus:outline-none focus:ring-2 focus:ring-cyan-400 text-lg"
           />
         </div>
-      </div>
+      </section>
 
-      {/* GRID */}
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-        {domains.map((d, i) => (
-          <div
-            key={i}
-            className="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 hover:scale-105 transition"
-          >
-            <h3 className="text-lg mb-2">{d.name}</h3>
+      {/* FEATURED DOMAINS */}
+      <section className="max-w-7xl mx-auto px-6 mt-28">
+        
+        <h3 className="text-xl mb-6">Featured Domains</h3>
 
-            <p className="text-green-400 font-semibold mb-4">
-              {d.price}
-            </p>
+        <div className="grid md:grid-cols-3 gap-8">
+          
+          {["vape.com.ua", "free.com.ua", "pancake.com.ua"].map((d, i) => (
+            <div
+              key={i}
+              className="group bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-6 hover:scale-[1.03] transition"
+            >
+              <h4 className="text-lg mb-2">{d}</h4>
 
-            <button className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-green-400 text-black font-semibold hover:opacity-90 transition">
-              Buy Domain
-            </button>
-          </div>
-        ))}
-      </div>
+              <p className="text-green-400 font-semibold mb-4">
+                ${[2500, 5000, 1200][i]}
+              </p>
+
+              <button className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-400 to-green-400 text-black font-semibold hover:opacity-90 transition">
+                Buy Domain
+              </button>
+            </div>
+          ))}
+
+        </div>
+      </section>
 
     </main>
   );
